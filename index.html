@@ -6,13 +6,18 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/lib/paper-full.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.core.min.js"></script>
     
     <!-- Define inlined PaperScript associate it with myCanvas -->
     <script type="text/paperscript" canvas="myCanvas">
 
-        var circles = [];
+        var sound = new Howl({
+        src: ['bubble.mp3']
+        });
 
+        var circles = [];
         function onKeyDown(event){
+            sound.play();
             var maxPoint= new Point(view.size.width, view.size.height);
             var randomPoint = Point.random();
             var point = maxPoint * randomPoint;
